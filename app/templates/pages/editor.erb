@@ -8,6 +8,32 @@
   <script src="/js/lib/reqwest-20130218120400.min.js"></script>
   <script src="/js/lib/qwery-20130218120400.min.js"></script>
   <script src="/js/editor.js"></script>
+  <style>
+    .unstyled {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    input[type="text"] {
+      width: 60ex;
+    }
+    .slug {
+      color: #999;
+    }
+    .bundle-title {
+      margin-bottom: 0;
+    }
+    .bundle-head {
+      margin-bottom: 10px;
+    }
+    .bundle-content, .piece-add-new {
+      padding-left: 20px;
+    }
+    .remove-bundle, .remove-content {
+      font-size: 80%;
+      color: inherit;
+    }
+  </style>
 </head>
 <body>
 
@@ -24,17 +50,26 @@
 <h2>Existing bundles</h2>
 
 <div id="bundle-existing">
-<ul data-bind="foreach: bundles">
+<ul data-bind="foreach: bundles" class="unstyled">
   <li>
-      <h3 data-bind="text: title"></h3>
-      <span class="slug" data-bind="text: id"></span>
-      <a href="#" data-bind="click: removeBundle" class="remove-bundle">remove</a>
-      <ul data-bind="foreach: content">
+    <header class="bundle-head">
+      <div class="bundle-head-titles">
+        <h3 data-bind="text: title" class="bundle-title"></h3>
+        <span class="slug" data-bind="text: id"></span>
+        <a href="#" data-bind="click: removeBundle" class="remove-bundle">remove</a>
+      </div>
+      <div class="bundle-head-settings">
+        <input type="text" data-bind="value: background_uri" placeholder="URL to background image" class="bundle-create-background-input"/>
+        <select data-bind="options: $parent.availableSections, selectedOptions: section" class="bundle-create-section-input"/></select>
+      </div>
+    </header>
+
+    <ul data-bind="foreach: content" class="bundle-content">
         <li>
           <span class="bundle-title" data-bind="text: webTitle"></span>
           <a href="#" data-bind="click: removeContent" class="remove-content">remove</a>
         </li>
-      </ul>
+    </ul>
 
       <div class="piece-add-new">
         <input type="text" size="50" data-bind="value: addUrlInput" placeholder="URL of the content to add"/>

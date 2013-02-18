@@ -1,5 +1,7 @@
 function everything() {
 
+  var availableSections = ko.observableArray(['global', 'culture', 'lifeandstyle', 'technology', 'sport']);
+
   function hookContent(bundle, content) {
     var bundleId = bundle.id();
     content.removeContent = function() {
@@ -25,6 +27,33 @@ function everything() {
     for (var i = 0; i < bundle.content().length; i++) {
       hookContent(bundle, bundle.content()[i]);
     }
+
+    if (!bundle.background_uri) {
+      bundle.background_uri = ko.observable();
+    }
+    bundle.background_uri.subscribe(function(newUri) {
+      reqwest({
+        url: '/api/bundles/'+bundleId,
+        method: 'patch',
+        type: 'json',
+        data: {background_uri: newUri}
+      });
+    });
+
+    if (!bundle.section) {
+      bundle.section = ko.observableArray();
+    } else {
+      bundle.section = ko.observableArray([bundle.section()]);
+    }
+    bundle.section.subscribe(function(newSections) {
+      var newSection = newSections[0];
+      reqwest({
+        url: '/api/bundles/'+bundleId,
+        method: 'patch',
+        type: 'json',
+        data: {section: newSection}
+      });
+    });
 
     bundle.addUrlInput = ko.observable();
     bundle.addContent = function() {
@@ -62,7 +91,8 @@ function everything() {
   }
 
   var existingModel = {
-    bundles: ko.observableArray()
+    bundles: ko.observableArray(),
+    availableSections: availableSections
   };
 
   var request = reqwest({
@@ -89,7 +119,7 @@ function everything() {
     createTitleInput: ko.observable(""),
     createBackgroundInput: ko.observable(""),
     createSectionInput: ko.observableArray(),
-    availableSections: ko.observableArray(['global', 'culture', 'lifeandstyle', 'technology', 'sport']),
+    availableSections: availableSections,
     createBundle: function() {
       var slug = this.createSlugInput();
       var title = this.createTitleInput();
