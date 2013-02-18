@@ -1,7 +1,8 @@
-redis_uri = ENV['REDISTOGO_URL'] || begin
+redis_uri_string = ENV['REDISTOGO_URL'] || begin
   config = YAML.load_file("config.yml")
-  URI.parse config[:redis_uri]
+  config[:redis_uri]
 end
+redis_uri = URI.parse redis_uri_string
 REDIS = Redis.new(:host => redis_uri.host, :port => redis_uri.port, :password => redis_uri.password)
 
 
