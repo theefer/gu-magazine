@@ -1,6 +1,8 @@
-config = YAML.load_file("config.yml")
-uri = URI.parse config[:redis_uri]
-REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+redis_uri = ENV['REDISTOGO_URL'] || begin
+  config = YAML.load_file("config.yml")
+  URI.parse config[:redis_uri]
+end
+REDIS = Redis.new(:host => redis_uri.host, :port => redis_uri.port, :password => redis_uri.password)
 
 
 class Page < Erubis::Eruby
