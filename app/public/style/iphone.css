@@ -1,25 +1,47 @@
-#iphone {
-   width: 407px;
-   height: 854px;
-   margin: 10px auto;
-   background: url(/images/iphone.jpg) no-repeat left top;
-   position: relative;
+body {
+   margin: 0;
+   padding: 0;
 }
-#iphone-screen {
-   position: absolute;
-   left: 35px;
-   right: -20px;
-   top: 125px;
-   bottom: 123px;
-   padding-right: 36px;
-   overflow-x: hidden;
-   overflow-y: scroll;
+
+@media (max-width: 480px) {
+   #iphone {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+   }
+   #newsstand {
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: 0;
+   }
+   #iphone-home-button {
+     display: none;
+   }
 }
-#iphone-home-button {
-   position: absolute;
-   bottom: 15px;
-   left: 159px;
-   width: 100px;
-   height: 100px;
-   text-indent: -9999px;
+
+@media (min-width: 480px) {
+   #iphone {
+      width: 407px;
+      height: 854px;
+      margin: 10px auto;
+      background: url(/images/iphone.jpg) no-repeat left top;
+      position: relative;
+   }
+   #iphone-screen {
+      position: absolute;
+      left: 35px;
+      right: -20px;
+      top: 125px;
+      bottom: 123px;
+      padding-right: 36px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+   }
+   #iphone-home-button {
+      position: absolute;
+      bottom: 15px;
+      left: 159px;
+      width: 100px;
+      height: 100px;
+      text-indent: -9999px;
+   }
 }
