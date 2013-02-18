@@ -1,0 +1,25 @@
+#iphone {
+   width: 407px;
+   height: 854px;
+   margin: 10px auto;
+   background: url(/images/iphone.jpg) no-repeat left top;
+   position: relative;
+}
+#iphone-screen {
+   position: absolute;
+   left: 35px;
+   right: -20px;
+   top: 125px;
+   bottom: 123px;
+   padding-right: 36px;
+   overflow-x: hidden;
+   overflow-y: scroll;
+}
+#iphone-home-button {
+   position: absolute;
+   bottom: 15px;
+   left: 159px;
+   width: 100px;
+   height: 100px;
+   text-indent: -9999px;
+}

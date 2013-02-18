@@ -1,0 +1,208 @@
+a {
+   text-decoration: none;
+   color: inherit;
+}
+
+.magazine-logo {
+   text-indent: -9999px;
+   background: url(/images/magazine-logo.png) no-repeat;
+   display: block;
+   width: 196px;
+   height: 19px;
+}
+.magazine-logo.with-light-background {
+   background-image: url(/images/magazine-logo-dark.png);
+}
+
+.bundle-list {
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+}
+.bundle-item {
+   background-color: #eee;
+
+   display: block;
+   margin: 10px;
+   float: left;
+}
+
+
+.bundle-section-head {
+   display: block;
+}
+
+.bundle-title-link {
+   color: inherit;
+   text-decoration: none;
+}
+
+.bundle-section-head.with-image {
+   height: 50px;
+   background-size: 100% auto;
+}
+
+.full-bundle-title {
+   text-shadow: 1px 1px 1px black;
+   display: block;
+   position: absolute;
+   bottom: 10%;
+}
+.is-collapsed .full-bundle-title {
+   font-size: 200%;
+}
+
+.section-culture .bundle-section-head,
+.section-culture .full-bundle-head {
+   border-bottom: 5px solid  #D1008B;
+}
+.section-culture .bundle-title-link,
+.section-culture .full-bundle-title {
+   color: #D1008B;
+}
+
+.section-sport .bundle-section-head,
+.section-sport .full-bundle-head {
+   border-bottom: 5px solid green;
+}
+.section-sport .bundle-title-link,
+.section-sport .full-bundle-title {
+   color: green;
+}
+
+.section-lifeandstyle .bundle-section-head,
+.section-lifeandstyle .full-bundle-head {
+   border-bottom: 5px solid #AD532F;
+}
+.section-lifeandstyle .bundle-title-link,
+.section-lifeandstyle .full-bundle-title {
+   color: #AD532F;
+}
+
+.section-technology .bundle-section-head,
+.section-technology .full-bundle-head {
+   border-bottom: 5px solid #D61D00;
+}
+.section-technology .bundle-title-link,
+.section-technology .full-bundle-title {
+   color: #D61D00;
+}
+
+
+.bundle-open-button {
+   color: #eee;
+   background-color: #666;
+   text-decoration: none;
+   padding: 5px 10px;
+   float: right;
+}
+
+.bundle-content {
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+}
+
+.bundle-head,
+.bundle-content {
+   margin: 0 10px;
+}
+
+.bundle-content-item {
+   margin-bottom: 10px;
+}
+
+.bundle-content-title {
+   margin: 0 0 10px;
+}
+
+.bundle-content-trailtext {
+   color: #666;
+}
+
+.bundle-content-item
+.bundle-content-image {
+   display: none;
+}
+
+.bundle-content-item:first-child
+.bundle-content-image {
+   display: inline;
+   width: 100%;
+}
+
+.bundle-item.col-3
+.bundle-content-item:first-child
+.bundle-content-image {
+   display: inline;
+   width: 30%;
+   margin-right: 10px;
+   float: left;
+}
+.bundle-item.col-3
+.bundle-content-item:first-child + .bundle-content-item {
+   clear: both;
+   padding-top: 10px;
+}
+
+.col-1 {
+   width: 220px;
+}
+
+.col-2 {
+   width: 460px;
+}
+
+.col-3 {
+   width: 700px;
+}
+
+
+
+.magazine-logo {
+   position: relative;
+   top: 20px;
+}
+
+.full-bundle-head {
+   height: 400px;
+   color: white;
+   margin-bottom: 20px;
+   background-size: 100% auto;
+   position: relative;
+}
+.full-bundle-head.is-collapsed {
+   height: 100px;
+}
+.full-bundle-head-container,
+.full-bundle-content,
+.article-content,
+.article-related {
+   max-width: 1000px;
+   margin: auto;
+}
+.full-bundle-content {
+   padding: 0;
+   list-style-type: none;
+}
+.full-bundle-title {
+   margin-top: 300px;
+   font-size: 300%;
+}
+
+.piece-item:first-child .bundle-content-image {
+   width: 50%;
+}
+.piece-item .bundle-content-image {
+   width: 30%;
+   float: left;
+   margin-right: 15px;
+}
+.piece-item {
+   clear: left;
+   float: left;
+   width: 100%;
+   margin-bottom: 15px;
+   border-bottom: 1px solid #ccc;
+   padding-bottom: 15px;
+}
