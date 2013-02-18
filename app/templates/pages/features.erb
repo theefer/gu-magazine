@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Features</title>
+  <script src="/js/lib/masonry.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/style/masonry.css">
+  <link rel="stylesheet" type="text/css" href="/style/features.css">
+<script>
+window.onload = function() {
+  var wall = new Masonry( document.getElementById('bundles'), {
+    columnWidth: 10
+  });
+};
+</script>
+</head>
+<body>
+
+    <h1 class="magazine-logo with-light-background"><a href="/features">The Guardian Magazine</a></h1>
+
+    <ul id="bundles" class="bundle-list masonry">
+      <% for bundle in bundles %>
+      <li class="bundle-item col-<%= (rand*3).floor+1 %> masonry-brick <%= if bundle["section"] then "section-#{bundle['section']}" else "" end%>">
+        <span class="bundle-section-head <%= bundle["background_uri"] ? "with-image" : "no-image" %>" style="background-image: url('<%= bundle["background_uri"] %>')"></span>
+        <header class="bundle-head">
+          <a href="/features/<%= bundle["id"] %>" class="bundle-open-button">Open issue</a>
+          <h2 class="bundle-title"><a href="/features/<%= bundle["id"] %>" class="bundle-title-link"><%= bundle["title"] %></a></h2>
+        </header>
+
+        <ul class="bundle-content">
+          <% for content in bundle["content"] %>
+            <li class="bundle-content-item">
+            <%
+               main_pictures = content["mediaAssets"].select {|a| a["index"] == 1} || []
+               main_pictures.sort! {|a, b| b["fields"]["width"].to_i <=> a["fields"]["width"].to_i}
+               if main_picture = main_pictures.first
+            %>
+              <img src="<%= main_picture["file"] %>" class="bundle-content-image"/>
+            <% end %>
+              <h3 class="bundle-content-title"><a href="/features/<%= bundle["id"] %>/<%= content["id"] %>"><%= content["webTitle"] %></a></h3>
+              <div class="bundle-content-trailtext">
+              <%= content["fields"]["trailText"] %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+      <% end %>
+    </ul>
+
+</body>
+</html>

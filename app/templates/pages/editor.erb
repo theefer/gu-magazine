@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Editor</title>
+  <script src="/js/lib/knockout-2.2.1.js"></script>
+  <script src="/js/lib/knockout.mapping-2.4.1.js"></script>
+  <script src="/js/lib/reqwest-20130218120400.min.js"></script>
+  <script src="/js/lib/qwery-20130218120400.min.js"></script>
+  <script src="/js/editor.js"></script>
+</head>
+<body>
+
+<h1>Bundle Editor</h1>
+
+<div id="bundle-add">
+  <input type="text" data-bind="value: createTitleInput" placeholder="Title for the new bundle" class="bundle-create-slug-input"/><br/>
+  <input type="text" data-bind="value: createSlugInput" placeholder="Slug for the new bundle" class="bundle-create-title-input"/><br/>
+  <input type="text" data-bind="value: createBackgroundInput" placeholder="URL to background image" class="bundle-create-background-input"/><br/>
+  <select data-bind="options: availableSections, selectedOptions: createSectionInput" class="bundle-create-section-input"/></select><br/>
+  <input type="submit" value="Create bundle" data-bind="click: createBundle" class="bundle-create-button"/>
+</div>
+
+<h2>Existing bundles</h2>
+
+<div id="bundle-existing">
+<ul data-bind="foreach: bundles">
+  <li>
+      <h3 data-bind="text: title"></h3>
+      <span class="slug" data-bind="text: id"></span>
+      <a href="#" data-bind="click: removeBundle" class="remove-bundle">remove</a>
+      <ul data-bind="foreach: content">
+        <li>
+          <span class="bundle-title" data-bind="text: webTitle"></span>
+          <a href="#" data-bind="click: removeContent" class="remove-content">remove</a>
+        </li>
+      </ul>
+
+      <div class="piece-add-new">
+        <input type="text" size="50" data-bind="value: addUrlInput" placeholder="URL of the content to add"/>
+        <input type="submit" value="Add content" data-bind="click: addContent"/>
+      </div>
+  </li>
+</ul>
+</div>
+
+</body>
+</html>
