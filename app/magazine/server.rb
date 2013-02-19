@@ -142,6 +142,11 @@ end
 
 get '/magazine' do
   eruby = Page.new('magazine')
+  eruby.result()
+end
+
+get '/magazine/home' do
+  eruby = Page.new('magazine-home')
   eruby.result(:bundles => BUNDLES.list)
 end
 

@@ -23,7 +23,7 @@ a {
    background-color: #eee;
 
    display: block;
-   margin: 10px;
+   margin: 20px 10px;
    float: left;
 }
 
@@ -38,7 +38,7 @@ a {
 }
 
 .bundle-section-head.with-image {
-   height: 50px;
+   height: 100px;
    background-size: 100% auto;
 }
 
@@ -266,7 +266,7 @@ a {
      width: 98%;
   }
   .col-3 .bundle-section-head.with-image {
-     height: 90px;
+     height: 170px;
   }
   .col-3 .bundle-content-item:first-child {
      width: 100%;
@@ -299,6 +299,7 @@ a {
 a.bundle-open-button {
    color: #eee;
    margin-top: -5px;
+   margin-bottom: 10px;
 }
 
 .bundle-head {
@@ -307,6 +308,7 @@ a.bundle-open-button {
 
 .bundle-item {
    border: 1px solid #ccc;
+   box-shadow: 1px 1px 5px #aaa;
 }
 .bundle-section-head {
    margin: -1px -1px 0
