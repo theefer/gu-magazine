@@ -21,6 +21,20 @@
 
     <div class="main-content">
 
+  <aside class="article-related-side">
+    <h3 class="article-zone type-3 article-related-title">In this feature</h3>
+    <ul class="unstyled trailblock">
+      <% for other in bundle["content"] %>
+      <li class="trail <%= other["id"] == content["id"] ? 'is-current' : ''%>">
+        <h3 class="media-body trail-headline type-5"><a href="/features/<%= bundle["id"] %>/<%= other["id"] %>"><%= other["webTitle"] %></a></h3>
+        <div>
+          <%= other["fields"]["trailText"] %>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </aside>
+
   <article id="article" class="article article-content">
     <header class="article-head">
       <h1 class="article-headline"><%= content["webTitle"] %></h1>
@@ -47,20 +61,6 @@
     </div>
 
   </article>
-
-  <aside class="article-related-side">
-    <h3 class="article-zone type-3 article-related-title">Also in this feature</h3>
-    <ul class="unstyled trailblock">
-      <% for other in bundle["content"].reject {|c| c["id"] == content["id"]} %>
-      <li class="trail">
-        <h3 class="media-body trail-headline type-5"><a href="/features/<%= bundle["id"] %>/<%= other["id"] %>"><%= other["webTitle"] %></a></h3>
-        <div>
-          <%= other["fields"]["trailText"] %>
-        </div>
-      </li>
-      <% end %>
-    </ul>
-  </aside>
 
   <aside class="article-related-foot">
     <h3 class="article-zone type-3 article-related-title">Also in <em><%= bundle["title"] %></em></h3>

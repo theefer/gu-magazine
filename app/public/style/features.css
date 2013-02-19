@@ -322,10 +322,22 @@ a {
    padding-bottom: 15px;
 }
 
+.trail.is-current {
+   border-left: 3px solid red;
+   padding-left: 10px;
+   margin-left: -13px;
+}
 
+.article-headline {
+   font-size: 160%;
+}
 
 .article-related-side {
-  display: none;
+   font-size: 80%;
+   display: none; /* hidden by default */
+}
+.article-related-side .trail-headline {
+   font-size: 120%;
 }
 
 @media (min-width: 480px) {
@@ -352,12 +364,12 @@ a {
 @media (min-width: 700px) {
   .article-content {
     width: 60%;
-    margin-right: 5%;
     float: left;
   }
   .article-related-side {
     display: block;
     width: 30%;
+    margin-right: 5%;
     float: left;
   }
 

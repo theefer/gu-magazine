@@ -3,14 +3,112 @@
 <head>
   <meta charset="utf-8">
   <title>Hack Day</title>
+  <style>
+    body {
+      margin: 3%;
+    }
+    .magazine-logo {
+      background: url(/images/magazine-logo-main.png) no-repeat left top;
+      width: 768px;
+      height: 74px;
+      text-indent: -9999px;
+      margin-bottom: 50px;
+    }
+    .unstyled {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    a {
+      color: inherit;
+    }
+
+    .section-item {
+      width: 30%;
+      float: left;
+    }
+    .section-item + .section-item  {
+      margin-left: 5%;
+    }
+    .section-item span {
+      background-size: 100% auto;
+      display: block;
+      width: 100%;
+      height: 170px;
+    }
+    .section-item-mobile span {
+      background: url(/images/magazine-ios.png) no-repeat left top;
+    }
+    .section-item-features span {
+      background: url(/images/magazine-features.png) no-repeat left top;
+    }
+    .section-item-editor span {
+      background: url(/images/cogwheel.jpg) no-repeat left top;
+    }
+    .section-item a {
+      text-decoration: none;
+    }
+    .section-item .section-item-title {
+      border-top: 1px solid #666;
+      display: block;
+      font-size: 160%;
+      padding-top: 10px;
+      text-align: center;
+    }
+
+    .section-list {
+      padding-bottom: 50px;
+      float: left;
+      width: 100%;
+    }
+    .team {
+      float: right;
+    }
+    .goals {
+      float: left;
+      text-align: left;
+      max-width: 80ex;
+    }
+    #all {
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
-<ul>
-  <li><a href="/editor">Editor</a></li>
-  <li><a href="/magazine">Magazine</a></li>
-  <li><a href="/features">Features</a></li>
+<div id="all">
+
+<h1 class="magazine-logo">The Guardian Magazine</h1>
+
+<ul class="section-list unstyled">
+  <li class="section-item section-item-mobile"><a href="/magazine"><span></span></a><a href="/magazine" class="section-item-title">Magazine on Mobile</a></li>
+  <li class="section-item section-item-features"><a href="/features"><span></span></a><a href="/features" class="section-item-title">Features on the Web</a></li>
+  <li class="section-item section-item-editor"><a href="/editor"><span></span></a><a href="/editor" class="section-item-title">Bundle Editor</a></li>
 </ul>
+
+<div class="team">
+  <h2>Team</h2>
+  <ul class="unstyled">
+    <li><a href="mailto:seb.cevey@guardian.co.uk">Sébastien Cevey</a> &ndash; developer</li>
+    <li><a href="mailto:mario.andrade@guardian.co.uk">Mario Andrade</a> &ndash; UX, design</li>
+    <li><a href="mailto:hannah.waldram@guardian.co.uk">Hannah R Waldram</a> &ndash; editorial</li>
+    <li><a href="mailto:nick.sidwell@guardian.co.uk">Nick Sidwell</a> &ndash; editorial</li>
+    <li><a href="mailto:robert.rees@guardian.co.uk">Robert Reese</a> &ndash; backseat driver</li>
+  </ul>
+</div>
+
+<div class="goals">
+  <h2>Project Goals</h2>
+  <p>This Guardian hack day project was worked on on February 18-19, 2013.</p>
+  <p>The main goals explored were to:</p>
+  <ul>
+    <li>Exploit the wealth of time-insensitive “archived” content by surfacing it as part of thematic editorial bundles.</li>
+    <li>Apply reader personalisation to optimize the content they are presented with.</li>
+    <li>Encourage browsing of related content based on theme and personal interest, rather than age (the “news model”).</li>
+  </ul>
+</div>
+
+</div>
 
 </body>
 </html>

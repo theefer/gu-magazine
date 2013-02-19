@@ -17,8 +17,13 @@ window.onload = function() {
 };
 </script>
 <style>
-  .magazine-logo {
-    margin: 10px 10px 40px;
+  .magazine-logo-main {
+    background: url(/images/magazine-logo-main.png) no-repeat left top;
+    background-size: 500px auto;
+    text-indent: -9999px;
+    margin: 20px 10px 20px;
+    border-bottom: 5px solid #00558E;
+    padding-bottom: 30px;
   }
   .bundle-item {
     border: 1px solid #ccc;
@@ -43,7 +48,6 @@ window.onload = function() {
     right: 10px;
     padding: 3px 0;
     background-color: #ccc;
-  
   }
   .profile-list {
     padding: 0;
@@ -69,7 +73,7 @@ window.onload = function() {
     </ul>
   </div>
 
-    <h1 class="magazine-logo with-light-background"><a href="/features">The Guardian Magazine</a></h1>
+    <h1 class="magazine-logo-main"><a href="/features">The Guardian Magazine</a></h1>
 
     <ul id="bundles" class="bundle-list masonry">
       <% for bundle in bundles %>
