@@ -111,52 +111,150 @@ a {
 .bundle-content-item {
    margin-bottom: 10px;
 }
-
-.bundle-content-title {
-   margin: 0 0 10px;
+.bundle-content-item + .bundle-content-item {
+   border-top: 1px solid #ccc;
+   padding-top: 5px;
 }
 
 .bundle-content-trailtext {
    color: #666;
 }
 
-.bundle-content-item
+
+.bundle-content-item {
+  float: left;
+  width: 100%;
+}
+
+.bundle-content-title {
+   margin: 0;
+}
+
+.bundle-content-item .bundle-content-image {
+  display: none;
+}
+
+.bundle-content-item:first-child .bundle-content-image {
+  display: inline;
+}
+
 .bundle-content-image {
+  width: 100%;
+}
+
+.col-1, .col-2, .col-3 {
+  width: 95%;
+}
+
+.col-1 .bundle-content {
    display: none;
 }
 
-.bundle-content-item:first-child
-.bundle-content-image {
-   display: inline;
-   width: 100%;
+.col-2 .bundle-content-item:first-child .bundle-content-image {
+   display: none;
 }
 
-.bundle-item.col-3
-.bundle-content-item:first-child
-.bundle-content-image {
-   display: inline;
-   width: 30%;
-   margin-right: 10px;
-   float: left;
-}
-.bundle-item.col-3
-.bundle-content-item:first-child + .bundle-content-item {
-   clear: both;
-   padding-top: 10px;
+.col-3 .bundle-content-item:first-child .bundle-content-title {
+  /* type-3 */
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.8rem;
 }
 
-.col-1 {
-   width: 220px;
+@media (max-width: 400px) {
+  .col-3 .bundle-content-title {
+    margin-top: 5px;
+  }
 }
 
-.col-2 {
-   width: 460px;
+@media (min-width: 400px) {
+  .col-3 .bundle-content-image {
+    display: inline;
+    float: left;
+    margin-right: 10px;
+  }
+  .col-3 .bundle-content-image {
+    width: 25%;
+  }
+  .col-3 .bundle-content-item:first-child .bundle-content-image {
+    width: 40%;
+  }
+
+  .col-3 .bundle-content-item {
+    clear: left;
+  }
 }
 
-.col-3 {
-   width: 700px;
+@media (min-width: 800px) {
+  .col-1, .col-2 {
+     width: 45%;
+  }
+
+  .col-3 {
+     width: 95%;
+  }
+  .col-3 .bundle-section-head.with-image {
+     height: 70px;
+  }
 }
 
+@media (min-width: 1000px) {
+  .col-1 {
+     width: 30%;
+  }
+  .col-1 .bundle-content {
+    display: block;
+  }
+  .col-1 .bundle-content-item:first-child .bundle-content-image {
+    display: none;
+  }
+  .col-1 .bundle-content-trailtext {
+    display: none;
+  }
+
+  .col-2 {
+     width: 64%;
+  }
+  .col-2 .bundle-content-image {
+    display: inline;
+    width: 30%;
+    float: left;
+    margin-right: 10px;
+  }
+  .col-2 .bundle-content-item:first-child .bundle-content-image {
+    display: inline; /* override */
+  }
+  .col-2 .bundle-content-item {
+    clear: left;
+  }
+
+  .col-3 {
+     width: 98%;
+  }
+  .col-3 .bundle-section-head.with-image {
+     height: 90px;
+  }
+  .col-3 .bundle-content-item:first-child {
+     width: 100%;
+  }
+  .col-3 .bundle-content-item {
+     width: 45%;
+     float: left;
+     clear: none;
+  }
+  .col-3 .bundle-content-item:nth-child(2n) {
+     clear: left;
+  }
+  .col-3 .bundle-content-item:nth-child(2n+1) {
+     margin-left: 5%;
+  }
+  .col-3 .bundle-content-item:nth-child(2n+1):first-child {
+     margin-left: 0;
+  }
+  .col-3 .bundle-content-image {
+    width: 30%;
+  }
+}
 
 
 .magazine-logo {
@@ -176,8 +274,7 @@ a {
 }
 .full-bundle-head-container,
 .full-bundle-content,
-.article-content,
-.article-related {
+.main-content {
    max-width: 1000px;
    margin: auto;
 }
@@ -205,4 +302,55 @@ a {
    margin-bottom: 15px;
    border-bottom: 1px solid #ccc;
    padding-bottom: 15px;
+}
+
+
+
+.article-related-side {
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .article-related-foot {
+    clear: left;
+  }
+  .article-related-foot .trail {
+    float: left;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 700px) {
+  .article-related-foot .trail {
+    width: 46%;
+  }
+  .article-related-foot .trail:nth-child(2n) {
+    margin-left: 5%;
+  }
+  .article-related-foot .trail:nth-child(2n+1) {
+    clear: left;
+  }
+}
+
+@media (min-width: 700px) {
+  .article-content {
+    width: 60%;
+    margin-right: 5%;
+    float: left;
+  }
+  .article-related-side {
+    display: block;
+    width: 30%;
+    float: left;
+  }
+
+  .article-related-foot .trail {
+    width: 30%;
+  }
+  .article-related-foot .trail:nth-child(3n),
+  .article-related-foot .trail:nth-child(3n-1) {
+    margin-left: 5%;
+  }
+  .article-related-foot .trail:nth-child(3n+1) {
+    clear: left;
+  }
 }

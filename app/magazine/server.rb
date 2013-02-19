@@ -161,9 +161,20 @@ get '/magazine/:id/*' do
   eruby.result(:bundle => bundle, :content => content)
 end
 
+PROFILES = [
+            { :name => 'Artsy Simon',
+              :favouriteSections => ['lifeandstyle', 'culture'], :ignoredSections => []},
+            { :name => 'Geeky Amy',
+              :favouriteSections => ['technology', 'culture'], :ignoredSections => ['sport']},
+            {:name => 'Muscly Arnold',
+              :favouriteSections => ['sport', 'lifeandstyle'], :ignoredSections => ['culture']},
+]
+
 get '/features' do
+  profile = PROFILES.find {|p| p[:name] == params[:profile]} || PROFILES.first
+
   eruby = Page.new('features')
-  eruby.result(:bundles => BUNDLES.list)
+  eruby.result(:bundles => BUNDLES.list, :profiles => PROFILES, :profile => profile)
 end
 
 get '/features/:id' do
