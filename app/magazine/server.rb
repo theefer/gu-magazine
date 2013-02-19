@@ -163,18 +163,26 @@ end
 
 PROFILES = [
             { :name => 'Artsy Simon',
-              :favouriteSections => ['lifeandstyle', 'culture'], :ignoredSections => []},
+              :favouriteSections => ['culture', 'lifeandstyle'], :ignoredSections => []},
             { :name => 'Geeky Amy',
-              :favouriteSections => ['technology', 'culture'], :ignoredSections => ['sport']},
-            {:name => 'Muscly Arnold',
-              :favouriteSections => ['sport', 'lifeandstyle'], :ignoredSections => ['culture']},
+              :favouriteSections => ['technology', 'culture', 'travel'], :ignoredSections => ['sport']},
+            { :name => 'Muscly Arnold',
+              :favouriteSections => ['sport'], :ignoredSections => ['culture', 'news']},
 ]
 
 get '/features' do
   profile = PROFILES.find {|p| p[:name] == params[:profile]} || PROFILES.first
 
+  bundles = BUNDLES.list
+
+  # prepend a favourite bundle, if there is one
+  if fav_bundle = bundles.find {|b| profile[:favouriteSections].first == b["section"]}
+    bundles.delete(fav_bundle)
+    bundles = [fav_bundle] + bundles
+  end
+
   eruby = Page.new('features')
-  eruby.result(:bundles => BUNDLES.list, :profiles => PROFILES, :profile => profile)
+  eruby.result(:bundles => bundles, :profiles => PROFILES, :profile => profile)
 end
 
 get '/features/:id' do
@@ -279,6 +287,7 @@ delete '/api/bundles/:id/*' do
   content_id = params[:splat].first
   bundle = BUNDLES.get_by_id(id) or halt 404
   bundle["content"].reject! {|c| p c; c['id'] == content_id}
+  BUNDLES.store(bundle)
   return_json nil
 end
 
