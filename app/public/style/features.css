@@ -88,6 +88,24 @@ a {
    color: #D61D00;
 }
 
+.section-news .bundle-section-head,
+.section-news .full-bundle-head {
+   border-bottom: 5px solid #D61D00;
+}
+.section-news .bundle-title-link,
+.section-news .full-bundle-title {
+   color: #D61D00;
+}
+
+.section-travel .bundle-section-head,
+.section-travel .full-bundle-head {
+   border-bottom: 5px solid #066EC9;
+}
+.section-travel .bundle-title-link,
+.section-travel .full-bundle-title {
+   color: #066EC9;
+}
+
 
 .bundle-open-button {
    color: #eee;

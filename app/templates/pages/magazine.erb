@@ -39,7 +39,7 @@
 
     <div id="newsstand">
     <ul class="bundle-list">
-      <% for bundle in bundles %>
+      <% for bundle in bundles.select {|b| b["id"] == "the-science-of-the-human"} || [bundles.first] %>
       <li class="bundle-item"><a href="/magazine/<%= bundle["id"] %>"><%= bundle["title"] %></a></li>
       <% end %>
     </ul>

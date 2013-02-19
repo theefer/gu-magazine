@@ -1,6 +1,6 @@
 function everything() {
 
-  var availableSections = ko.observableArray(['global', 'culture', 'lifeandstyle', 'technology', 'sport']);
+  var availableSections = ko.observableArray(['global', 'news', 'culture', 'lifeandstyle', 'technology', 'travel', 'sport']);
 
   function hookContent(bundle, content) {
     var bundleId = bundle.id();
