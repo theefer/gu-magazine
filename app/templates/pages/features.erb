@@ -25,21 +25,8 @@ window.onload = function() {
     border-bottom: 5px solid #00558E;
     padding-bottom: 30px;
   }
-  .bundle-item {
-    border: 1px solid #ccc;
-  }
-  .bundle-section-head {
-    margin: -1px -1px 0
-  }
-  .bundle-head {
-    margin-top: 15px;
-  }
   .bundle-title {
     margin-bottom: 15px;
-  }
-  a.bundle-open-button {
-    color: #eee;
-    margin-top: -5px;
   }
 
   #profile-picker {
@@ -103,7 +90,7 @@ window.onload = function() {
             %>
               <img src="<%= main_picture["file"] %>" class="bundle-content-image"/>
             <% end %>
-              <h3 class="bundle-content-title"><a href="/features/<%= bundle["id"] %>/<%= content["id"] %>"><%= content["webTitle"] %></a></h3>
+              <h3 class="bundle-content-title <%= col != "col-1" ? "type-3" : "" %>"><a href="/features/<%= bundle["id"] %>/<%= content["id"] %>"><%= content["webTitle"] %></a></h3>
               <div class="bundle-content-trailtext">
               <%= content["fields"]["trailText"] %>
               </div>

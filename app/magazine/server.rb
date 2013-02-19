@@ -188,17 +188,25 @@ end
 get '/features/:id' do
   id = params[:id]
   bundle = BUNDLES.get_by_id(id) or halt 404
+
+  other_bundles = BUNDLES.list.reject {|b| b["id"] == bundle["id"]}
+  related_bundles = other_bundles.select {|b| b["section"] == bundle["section"]}
+
   eruby = Page.new('features-bundle')
-  eruby.result(bundle)
+  eruby.result(:bundle => bundle, :related_bundles => related_bundles)
 end
 
 get '/features/:id/*' do
   id = params[:id]
   content_id = params[:splat].first
   bundle = BUNDLES.get_by_id(id) or halt 404
+
+  other_bundles = BUNDLES.list.reject {|b| b["id"] == bundle["id"]}
+  related_bundles = other_bundles.select {|b| b["section"] == bundle["section"]}
+
   content = bundle["content"].find {|c| p c; c['id'] == content_id}
   eruby = Page.new('features-piece')
-  eruby.result(:bundle => bundle, :content => content)
+  eruby.result(:bundle => bundle, :content => content, :related_bundles => related_bundles)
 end
 
 
