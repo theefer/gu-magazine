@@ -1,9 +1,12 @@
-redis_uri_string = ENV['REDISTOGO_URL'] || begin
-  config = YAML.load_file("config.yml")
-  config[:redis_uri]
+def config
+  @config ||= YAML.load_file("config.yml")
 end
+
+redis_uri_string = ENV['REDISTOGO_URL'] || config[:redis_uri]
 redis_uri = URI.parse redis_uri_string
 REDIS = Redis.new(:host => redis_uri.host, :port => redis_uri.port, :password => redis_uri.password)
+
+CONTENT_API_KEY = ENV['CONTENT_API_KEY'] || config[:content_api_key]
 
 
 class Page < Erubis::Eruby
@@ -57,7 +60,7 @@ end
 
 def content_api_uri(id)
   # FIXME: api key for outside?
-  "http://content.guardianapis.com/#{id}?format=json&show-fields=all&show-media=all&api-key=techdev-internal"
+  "http://content.guardianapis.com/#{id}?format=json&show-fields=all&show-media=all&api-key=#{CONTENT_API_KEY}"
 end
 
 def content_from_cache(id)
